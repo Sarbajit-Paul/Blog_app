@@ -1,0 +1,43 @@
+<script>
+    const switchLabel = document.querySelector('.switch');
+  const checkbox = switchLabel.querySelector('input[type="checkbox"]');
+  
+  checkbox.addEventListener('change', function() {
+    const body = document.body;
+    if (this.checked) {
+      body.style.backgroundColor = '#000'; // Replace with your desired color
+      const elementsToChange = document.querySelectorAll('p, h1, h2, h3, a, ul');
+        elementsToChange.forEach(element => {
+                  element.style.color = 'white';
+      });
+      const blogTitles = document.querySelectorAll('.blogs a h3');
+      blogTitles.forEach(title => {
+        title.style.setProperty('color', 'inherit'); // Inherit base color from parent
+        title.style.setProperty('transition', 'color 0.3s ease'); // Add hover transition
+        title.addEventListener('mouseover', () => {
+          title.style.color = 'crimson';
+        });
+        title.addEventListener('mouseout', () => {
+          title.style.color = 'inherit'; // Revert to inherited color
+        });
+      });
+    } else {
+      body.style.backgroundColor = 'white'; // Replace with default color
+      const elementsToChange = document.querySelectorAll('p, h1, h2, h3, a, ul');
+        elementsToChange.forEach(element => {
+                  element.style.color = 'black';
+      });
+      const blogTitles = document.querySelectorAll('.blogs a h3');
+      blogTitles.forEach(title => {
+        title.style.setProperty('color', 'inherit'); // Inherit base color from parent
+        title.style.setProperty('transition', 'color 0.3s ease'); // Add hover transition
+        title.addEventListener('mouseover', () => {
+          title.style.color = 'crimson';
+        });
+        title.addEventListener('mouseout', () => {
+          title.style.color = 'inherit'; // Revert to inherited color
+        });
+      });
+    }
+  });
+  </script>
